@@ -152,9 +152,12 @@ Valor bruto :mean StringBuilder: [8.549499918699188E-4 (8.400203970189702E-4 8.6
 6. Use o gráfico para comunicar visualmente a diferença de desempenho.
 
 ## Conclusão
-- `reduce str` é drasticamente mais lento para grandes volumes de concatenação.
-- `StringBuilder` é a escolha correta para performance.
-- Benchmarks e gráficos logarítmicos ajudam a comunicar diferenças de performance de forma clara e impactante.
+
+Os resultados deste benchmark deixam claro que a escolha do algoritmo de concatenação de strings faz toda a diferença em aplicações que lidam com grandes volumes de dados. A abordagem ingênua com `reduce str` é simples, mas extremamente ineficiente para listas grandes, pois cria muitas cópias intermediárias e tem custo quadrático. Já o uso do `StringBuilder` (ou de funções que o utilizam internamente, como `clojure.string/join`) é muito mais eficiente, pois utiliza um buffer mutável e realiza a concatenação em tempo linear.
+
+Além disso, o uso de ferramentas de benchmark como o Criterium e a visualização em escala logarítmica permitem identificar e comunicar diferenças de performance que podem chegar a várias ordens de magnitude — algo que pode passar despercebido em testes superficiais.
+
+Portanto, ao desenvolver em Clojure (ou em qualquer linguagem baseada na JVM), prefira sempre abordagens otimizadas para manipulação de strings quando a performance for relevante. E lembre-se: medir, analisar e visualizar são passos fundamentais para tomar decisões técnicas embasadas.
 
 ## Referências
 - [Criterium no GitHub](https://github.com/hugoduncan/criterium)
@@ -162,3 +165,7 @@ Valor bruto :mean StringBuilder: [8.549499918699188E-4 (8.400203970189702E-4 8.6
 - [StringBuilder (Java)](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
 - [reduce (Clojure)](https://clojuredocs.org/clojure.core/reduce)
 - [str (Clojure)](https://clojuredocs.org/clojure.core/str) 
+
+## Autor
+
+Elton Peixoto — Software Engineer
