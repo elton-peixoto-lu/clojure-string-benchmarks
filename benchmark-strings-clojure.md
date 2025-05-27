@@ -5,6 +5,35 @@ Comparar o desempenho de duas abordagens para concatenação de strings em Cloju
 - `reduce str` (concatenação ingênua)
 - `StringBuilder` (concatenação eficiente)
 
+## Algoritmo (Passo a Passo Funcional)
+
+### 1. Concatenação ingênua (reduce str)
+
+**Pseudocódigo:**
+
+1. Comece com uma string vazia.
+2. Para cada elemento da lista de partes:
+   - Concatene a string acumulada com o próximo elemento usando `str`.
+   - O resultado é uma nova string (as anteriores não são reaproveitadas).
+3. Retorne a string final.
+
+**Resumo:**
+- Cada passo cria uma nova string, copiando todo o conteúdo anterior.
+- O custo cresce rapidamente conforme o número de partes aumenta.
+
+### 2. Concatenação eficiente (StringBuilder)
+
+**Pseudocódigo:**
+
+1. Crie um buffer mutável (StringBuilder).
+2. Para cada elemento da lista de partes:
+   - Adicione (append) o elemento ao buffer.
+3. Ao final, converta o buffer para uma string comum.
+
+**Resumo:**
+- O buffer é reaproveitado durante todo o processo.
+- O custo cresce linearmente com o número de partes.
+
 ## Referências de Medição
 - **Biblioteca:** [Criterium](https://github.com/hugoduncan/criterium) — ferramenta robusta para benchmarks estatísticos em Clojure.
 - **Documentação:** [Criterium no cljdoc](https://cljdoc.org/d/criterium/criterium/0.4.6/api/criterium.core), [StringBuilder (Java)](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html), [reduce (Clojure)](https://clojuredocs.org/clojure.core/reduce), [str (Clojure)](https://clojuredocs.org/clojure.core/str)
