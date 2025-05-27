@@ -135,7 +135,7 @@ Valor bruto :mean StringBuilder: [8.549499918699188E-4 (8.400203970189702E-4 8.6
 
 ## Gráfico
 
-> **Insira aqui a imagem do gráfico gerado pelo Incanter:**
+> **Imagem do gráfico gerado pelo Incanter:**
 >
 > ![Gráfico de comparação](image.png)
 
